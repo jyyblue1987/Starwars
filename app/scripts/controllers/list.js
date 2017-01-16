@@ -8,7 +8,7 @@
  * Controller of the starwarApp
  */
 angular.module('starwarApp')
-  .controller('MainCtrl', function () {
+  .controller('ListCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

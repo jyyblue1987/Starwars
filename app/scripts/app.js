@@ -20,30 +20,15 @@ angular
     'ngTouch'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
-    // $routeProvider
-    //   .when('/', {
-    //     templateUrl: 'views/main.html',
-    //     controller: 'MainCtrl',
-    //     controllerAs: 'main'
-    //   })
-    //   .when('/about', {
-    //     templateUrl: 'views/about.html',
-    //     controller: 'AboutCtrl',
-    //     controllerAs: 'about'
-    //   })
-    //   .otherwise({
-    //     redirectTo: '/'
-    //   });
-
-    $urlRouterProvider.otherwise('/main');
+    $urlRouterProvider.otherwise('/list');
 
     $stateProvider
-        .state('main', {
-            url: '/main',
-            templateUrl: 'views/main.html'
+        .state('list', {
+            url: '/list',
+            templateUrl: 'views/list.html'
         })
-        .state('about', {
-            url: '/about',
-            templateUrl: 'views/about.html'
+        .state('detail', {
+            url: '/detail',
+            templateUrl: 'views/detail.html'
         });
   });
