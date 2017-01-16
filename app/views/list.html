@@ -16,12 +16,25 @@
       </div>  
     </div>  
     <div class="col-sm-8">
-      <div class="hint_panel text-center" style="display: table; width: 100%">
+      <div class="hint_panel text-center" style="display: table; width: 100%" ng-show="article_list.length < 1">
         <div style="display: table-cell;vertical-align: middle; color: #798d84">          
           <span us-spinner></span>
           <div style="margin-top: 100px" ng-bind-html="message">           
           </div>  
         </div>  
+      </div>
+      <div class="card" ng-show="article_list.length > 0">
+        <div ng-repeat="item in article_list">
+          <div class="row">
+            <div class="col-sm-8" style="margin-top: 7px">
+              <span class="text-right" style="color: #347dbf; font-size: 18px"><b>Ackbar</b></span>
+            </div>  
+            <div class="col-sm-4 text-right">
+              <button type="button" class="btn btn-default btn-sm">See Details</button>
+            </div>          
+          </div>
+          <hr ng-show="!$last" style="margin-top: 9px; margin-bottom: 15px">
+        </div>          
       </div>
     </div>
   </div>

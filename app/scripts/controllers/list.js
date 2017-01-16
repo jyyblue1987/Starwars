@@ -14,5 +14,7 @@ angular.module('starwarApp')
 
     $scope.message = search_message;
 
-    
+    $scope.article_list = [];
+    $scope.article_list.push({});
+    $scope.article_list.push({});
   });
