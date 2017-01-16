@@ -8,10 +8,11 @@
  * Controller of the starwarApp
  */
 angular.module('starwarApp')
-  .controller('ListCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('ListCtrl', function ($scope, usSpinnerService) {
+    var search_message = '<i>Searching...</i>';
+    var hint_message ='Use the form to search for <br> "People" or "Movies"';
+
+    $scope.message = search_message;
+
+    
   });

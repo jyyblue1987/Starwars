@@ -1,4 +1,4 @@
-<div class="content">
+<div ng-controller="ListCtrl" class="content">
   <div class="row">
     <div class="col-sm-4 card">
       <p>
@@ -17,8 +17,10 @@
     </div>  
     <div class="col-sm-8">
       <div class="hint_panel text-center" style="display: table; width: 100%">
-        <div style="display: table-cell;vertical-align: middle; color: #798d84">
-          Use the form to search for <br> "People" or "Movies"
+        <div style="display: table-cell;vertical-align: middle; color: #798d84">          
+          <span us-spinner></span>
+          <div style="margin-top: 100px" ng-bind-html="message">           
+          </div>  
         </div>  
       </div>
     </div>
