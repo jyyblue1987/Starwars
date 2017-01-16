@@ -9,28 +9,30 @@
         <label class="radio-inline"><input type="radio" name="optradio">Movies</label>
       </div>
       <div class="form-group">
-        <input type="text" class="form-control input-sm" id="usr">
+        <input type="text" class="form-control input-sm" ng-model="search">
       </div>
       <div class="form-group">
-        <button type="button" class="btn btn-default btn-sm">Search</button>
+        <button type="button" class="btn btn-default btn-sm" ng-click="onSearch()">Search</button>
       </div>  
     </div>  
     <div class="col-sm-8">
-      <div class="hint_panel text-center" style="display: table; width: 100%" ng-show="article_list.length < 1">
+      <div class="hint_panel text-center" style="display: table; width: 100%" ng-show="item_list.length < 1">
         <div style="display: table-cell;vertical-align: middle; color: #798d84">          
-          <span us-spinner></span>
-          <div style="margin-top: 100px" ng-bind-html="message">           
-          </div>  
+          <span ng-show="loading" us-spinner></span>
+          <div ng-if="loading" style="margin-top: 100px" ng-bind-html="search_message">           
+          </div>        
+          <div ng-if="!loading" style="margin-top: 100px" ng-bind-html="hint_message">           
+          </div>        
         </div>  
       </div>
-      <div class="card" ng-show="article_list.length > 0">
-        <div ng-repeat="item in article_list">
+      <div class="card" ng-show="item_list.length > 0">
+        <div ng-repeat="item in item_list">
           <div class="row">
             <div class="col-sm-8" style="margin-top: 7px">
-              <span class="text-right text" style="font-size: 18px"><b>Ackbar</b></span>
+              <span class="text-right text" style="font-size: 18px"><b>{{item.name}}</b></span>
             </div>  
             <div class="col-sm-4 text-right">
-              <a type="button" ui-sref='detail' class="btn btn-default btn-sm">See Details</a>
+              <a type="button" class="btn btn-default btn-sm" ng-click="detail(item)">See Details</a>
             </div>          
           </div>
           <hr ng-show="!$last" style="margin-top: 9px; margin-bottom: 15px">
