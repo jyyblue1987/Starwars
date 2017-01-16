@@ -27,10 +27,10 @@
         <div ng-repeat="item in article_list">
           <div class="row">
             <div class="col-sm-8" style="margin-top: 7px">
-              <span class="text-right" style="color: #347dbf; font-size: 18px"><b>Ackbar</b></span>
+              <span class="text-right text" style="font-size: 18px"><b>Ackbar</b></span>
             </div>  
             <div class="col-sm-4 text-right">
-              <button type="button" class="btn btn-default btn-sm">See Details</button>
+              <a type="button" ui-sref='detail' class="btn btn-default btn-sm">See Details</a>
             </div>          
           </div>
           <hr ng-show="!$last" style="margin-top: 9px; margin-bottom: 15px">
