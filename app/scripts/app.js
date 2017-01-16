@@ -34,10 +34,16 @@ angular
     //   .otherwise({
     //     redirectTo: '/'
     //   });
+
+    $urlRouterProvider.otherwise('/main');
+
     $stateProvider
-        .state('app', {
-            abstract: true,
-            url: '/app',
-            template: '<div ui-view class="fade-in-right-big smooth"></div>'
+        .state('main', {
+            url: '/main',
+            templateUrl: 'views/main.html'
         })
+        .state('about', {
+            url: '/about',
+            templateUrl: 'views/about.html'
+        });
   });
