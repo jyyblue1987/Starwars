@@ -15,23 +15,29 @@ angular
     'ngCookies',
     'ngMessages',
     'ngResource',
-    'ngRoute',
+    'ui.router',
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+  .config(function ($stateProvider, $urlRouterProvider) {
+    // $routeProvider
+    //   .when('/', {
+    //     templateUrl: 'views/main.html',
+    //     controller: 'MainCtrl',
+    //     controllerAs: 'main'
+    //   })
+    //   .when('/about', {
+    //     templateUrl: 'views/about.html',
+    //     controller: 'AboutCtrl',
+    //     controllerAs: 'about'
+    //   })
+    //   .otherwise({
+    //     redirectTo: '/'
+    //   });
+    $stateProvider
+        .state('app', {
+            abstract: true,
+            url: '/app',
+            template: '<div ui-view class="fade-in-right-big smooth"></div>'
+        })
   });
