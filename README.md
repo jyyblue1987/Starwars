@@ -1,2 +1,12 @@
 # starwar
-Create an Angular app to search for Star Wars movies and characters and display the results.
+
+This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
+version 0.15.1.
+
+## Build & development
+
+Run `grunt` for building and `grunt serve` for preview.
+
+## Testing
+
+Running `grunt test` will run the unit tests with karma.
