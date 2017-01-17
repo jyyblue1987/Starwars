@@ -32,6 +32,10 @@ angular
         .state('detail', {
             url: '/detail:item',
             templateUrl: 'views/detail.html'
+        })
+        .state('movie', {
+            url: '/movie:item',
+            templateUrl: 'views/movie.html'
         });
   })
   .controller('AppCtrl', function ($scope, $rootScope, swapi) {

@@ -1,0 +1,28 @@
+<div ng-controller="MovieCtrl" class="content">
+  <div class="row">
+  	<div class="col-sm-6 col-sm-offset-3 card">
+		<div class="col-sm-6">
+			<p style="font-size: 18px">
+				<b>{{detail.title}}</b>
+			</p>
+			<div>				
+				<p>Opening Crawl:</p>
+				<div ng-bind-html="crawls">
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<p>Characters</p>
+			<div class="text">
+				<a ng-repeat="item in peoples" href="" ng-click="gotoPeople(item)" >{{item.name}}<span ng-show="!$last">, <span><a>  
+			</div>
+		</div>
+  	</div>  	
+  </div>
+  <div class="row" style="margin-top: 20px">
+  	<div class="col-sm-6 col-sm-offset-3 text">
+  	<a type="button" ui-sref="list" class="btn btn-link">❮ Back</a>
+  	</div>  	
+  </div>
+</div>
+

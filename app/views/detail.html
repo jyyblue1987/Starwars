@@ -17,7 +17,7 @@
 		<div class="col-sm-6">
 			<p>Movies</p>
 			<div class="text">
-				<a ng-repeat="item in movies">{{item.title}}<span ng-show="!$last">, <span><a>  
+				<a ng-repeat="item in movies" href="" ng-click="gotoMovie(item)">{{item.title}}<span ng-show="!$last">, <span><a>  
 			</div>
 		</div>
   	</div>  	
