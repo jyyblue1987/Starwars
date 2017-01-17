@@ -5,11 +5,13 @@
         <b>Select what you're searching for:</b>
       </p>
       <div class="form-group">
-        <label class="radio-inline"><input type="radio" name="optradio">People</label>
-        <label class="radio-inline"><input type="radio" name="optradio">Movies</label>
+        <label class="radio-inline"><input type="radio" name="optradio" ng-model="search_mode" value="People">People</label>
+        <label class="radio-inline"><input type="radio" name="optradio" ng-model="search_mode" value="Movies">Movies</label>
       </div>
       <div class="form-group">
-        <input type="text" class="form-control input-sm" ng-model="search">
+        <input type="text" class="form-control input-sm" ng-model="search" 
+          ng-keyup="$event.keyCode == 13 && onSearch()" 
+          placeholder="{{search_mode == 'People' ? 'e.g. Chewbacca, Yoda, Boba Fett' : 'e.g. Empire Strikes Back, The Force Awakens'}}">
       </div>
       <div class="form-group">
         <button type="button" class="btn btn-default btn-sm" ng-click="onSearch()">Search</button>
@@ -29,7 +31,7 @@
         <div ng-repeat="item in item_list">
           <div class="row">
             <div class="col-sm-8" style="margin-top: 7px">
-              <span class="text-right text" style="font-size: 18px"><b>{{item.name}}</b></span>
+              <span class="text-right text" style="font-size: 18px"><b>{{search_mode == 'People' ? item.name : item.title}}</b></span>
             </div>  
             <div class="col-sm-4 text-right">
               <a type="button" class="btn btn-default btn-sm" ng-click="detail(item)">See Details</a>
