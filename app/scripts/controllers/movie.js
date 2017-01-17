@@ -13,12 +13,15 @@ angular.module('starwarApp')
     $scope.detail = JSON.parse(item);
     $scope.crawls = $scope.detail.opening_crawl.replace(/\r?\n/g,'<br/>');
 
-    var peoples = $scope.detail.characters;
-    $scope.peoples = [];
-    for(var i = 0; i < peoples.length; i++ )
-    {   
-    	$scope.peoples.push({url: peoples[i], name: $rootScope.peoples[peoples[i]].name});
-    }
+    $scope.findFilmPeople(function() {
+        var peoples = $scope.detail.characters;
+        $scope.peoples = [];
+        for(var i = 0; i < peoples.length; i++ )
+        {   
+            $scope.peoples.push({url: peoples[i], name: $rootScope.peoples[peoples[i]].name});
+        }
+    });
+    
 
     $scope.gotoPeople = function(item) {
         swapi.get(item.url)

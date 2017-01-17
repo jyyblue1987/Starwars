@@ -12,12 +12,15 @@ angular.module('starwarApp')
     var item = $stateParams.item; //getting fooVal
     $scope.detail = JSON.parse(item);
 
-    var films = $scope.detail.films;
-    $scope.movies = [];
-    for(var i = 0; i < films.length; i++ )
-    {   
-    	$scope.movies.push({url: films[i], title: $rootScope.films[films[i]].title});
-    }
+    $scope.findFilmPeople(function() {
+        var films = $scope.detail.films;
+        $scope.movies = [];
+        for(var i = 0; i < films.length; i++ )
+        {   
+            $scope.movies.push({url: films[i], title: $rootScope.films[films[i]].title});
+        }
+    });
+    
 
     $scope.gotoMovie = function(item) {
         swapi.get(item.url)

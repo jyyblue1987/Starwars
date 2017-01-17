@@ -41,8 +41,13 @@ angular
   .controller('AppCtrl', function ($scope, $rootScope, swapi) {
     $rootScope.peoples = {};
     $rootScope.films = {};
+    $rootScope.data_count = 0;
 
-    $scope.findFilemPeople = function() {
+    $scope.findFilmPeople = function(callback) {
+        if( $rootScope.data_count >= 2 )
+            callback();
+
+        $rootScope.data_count = 0;
         // find all people
         swapi.people.all()
             .then(function(peoples) {
@@ -50,6 +55,11 @@ angular
                 for(var i = 0; i < results.length; i++)
                 {
                     $rootScope.peoples[results[i].url] = results[i];
+                }
+                $rootScope.data_count++;
+                if( $rootScope.data_count >= 2 && callback != undefined )
+                {
+                    callback();
                 }
             });
 
@@ -61,9 +71,14 @@ angular
                 {
                     $rootScope.films[results[i].url] = results[i];
                 }
+                $rootScope.data_count++;
+                if( $rootScope.data_count >= 2 && callback != undefined )
+                {
+                    callback();
+                }
             });        
     }
 
-    $scope.findFilemPeople();   
+    $scope.findFilmPeople();   
     
   });
