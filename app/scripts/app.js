@@ -42,24 +42,28 @@ angular
     $rootScope.peoples = {};
     $rootScope.films = {};
 
-    // find all people
-    swapi.people.all()
-        .then(function(peoples) {
-            var results = peoples.results; 
-            for(var i = 0; i < results.length; i++)
-            {
-                $rootScope.peoples[results[i].url] = results[i];
-            }
-        });
+    $scope.findFilemPeople = function() {
+        // find all people
+        swapi.people.all()
+            .then(function(peoples) {
+                var results = peoples.results; 
+                for(var i = 0; i < results.length; i++)
+                {
+                    $rootScope.peoples[results[i].url] = results[i];
+                }
+            });
 
-    // find all movies    
-    swapi.films.all()
-        .then(function(films) {
-            var results = films.results; 
-            for(var i = 0; i < results.length; i++)
-            {
-                $rootScope.films[results[i].url] = results[i];
-            }
-        });    
+        // find all movies    
+        swapi.films.all()
+            .then(function(films) {
+                var results = films.results; 
+                for(var i = 0; i < results.length; i++)
+                {
+                    $rootScope.films[results[i].url] = results[i];
+                }
+            });        
+    }
+
+    $scope.findFilemPeople();   
     
   });
